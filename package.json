@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "@react-three/drei": "^10.4.4",
+    "@react-three/fiber": "^9.2.0",
+    "@react-three/rapier": "^2.1.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "meshline": "^3.3.1",
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^7.0.5",
+    "three": "^0.178.0"
+  },
+  "name": "myportfolio",
+  "version": "1.0.0",
+  "description": "A modern, responsive portfolio website with immersive design elements, smooth animations, and interactive features.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
