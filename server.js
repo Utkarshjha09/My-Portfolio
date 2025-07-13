@@ -1,5 +1,4 @@
-// Use node-fetch for backend fetch requests
-const nodeFetch = require('node-fetch'); // ✅ Use a different variable name
+// Using native fetch (Node.js v18+)
 
 const express = require('express');
 const nodemailer = require('nodemailer');
@@ -33,7 +32,7 @@ app.post('/contact', async (req, res) => {
   // 1. Verify reCAPTCHA
   const secret = process.env.RECAPTCHA_SECRET || '6LdT9YArAAAAAJ4PMzGdoV94XW46Dpjr2Sqbtz_d';
   const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${recaptcha}`;
-  const captchaRes = await nodeFetch(verifyUrl, { method: 'POST' }); // ✅ use nodeFetch here
+  const captchaRes = await fetch(verifyUrl, { method: 'POST' });
   const captchaJson = await captchaRes.json();
 
   if (!captchaJson.success) {
