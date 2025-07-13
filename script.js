@@ -113,17 +113,29 @@ function animateFloatingCards() {
 // Initialize floating cards animation
 document.addEventListener('DOMContentLoaded', animateFloatingCards);
 
-// Form submission handling
+// Form submission handling for contact form
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
+        e.preventDefault(); // Prevent default form submission
         const form = e.target;
-        const token = grecaptcha.getResponse(); // Get the reCAPTCHA token
+        const sendButton = form.querySelector('button[type="submit"]');
+        // Set loading state on button
+        if (sendButton) {
+            sendButton.disabled = true;
+            sendButton.textContent = 'Sending...';
+        }
+        // Get reCAPTCHA token
+        const token = grecaptcha.getResponse();
         if (!token) {
             alert('Please complete the reCAPTCHA.');
+            if (sendButton) {
+                sendButton.disabled = false;
+                sendButton.textContent = 'Send Message';
+            }
             return;
         }
+        // Prepare form data
         const data = {
             name: form.name.value,
             email: form.email.value,
@@ -131,17 +143,37 @@ if (contactForm) {
             message: form.message.value,
             recaptcha: token
         };
-        const res = await fetch('http://localhost:3001/contact', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        });
-        if (res.ok) {
-            alert('Message sent! Check your email for confirmation.');
-            form.reset();
-            grecaptcha.reset(); // Reset reCAPTCHA
-        } else {
-            alert('There was an error sending your message.');
+        // Use a single backend URL for both local and production
+        const BACKEND_URL = window.location.hostname === 'localhost' ? 'http://localhost:3001/contact' : 'https://my-portfolio-eizv.onrender.com/contact';
+        try {
+            const res = await fetch(BACKEND_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            if (res.ok) {
+                alert('Message sent! Check your email for confirmation.');
+                form.reset();
+                grecaptcha.reset(); // Reset reCAPTCHA
+            } else {
+                // Try to get error message from backend
+                let errorMsg = 'There was an error sending your message.';
+                try {
+                    const errData = await res.json();
+                    if (errData && errData.error) errorMsg = errData.error;
+                } catch {}
+                alert(errorMsg);
+            }
+        } catch (err) {
+            // Log error for debugging
+            console.error('Network or server error:', err);
+            alert('Network error. Please try again later.');
+        } finally {
+            // Reset button state
+            if (sendButton) {
+                sendButton.disabled = false;
+                sendButton.textContent = 'Send Message';
+            }
         }
     });
 }
