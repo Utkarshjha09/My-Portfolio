@@ -131,7 +131,7 @@ if (contactForm) {
             message: form.message.value,
             recaptcha: token
         };
-        const res = await fetch('http://localhost:3001/contact', {
+        const res = await fetch('https://my-portfolio-eizv.onrender.com/contact', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
@@ -335,7 +335,7 @@ document.addEventListener('DOMContentLoaded', function() {
         subject: form.subject.value,
         message: form.message.value
       };
-      const res = await fetch('http://localhost:3001/contact', {
+      const res = await fetch('https://my-portfolio-eizv.onrender.com/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
