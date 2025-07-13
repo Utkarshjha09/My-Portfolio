@@ -1941,3 +1941,174 @@ body {
         font-size: 0.85rem;
     }
 } 
+
+@media (max-width: 768px) {
+  .container,
+  .hero,
+  .hero-content,
+  .about,
+  .about-content,
+  .projects,
+  .projects-grid,
+  .skills,
+  .skills-grid,
+  .contact,
+  .certificates,
+  .certificates-list,
+  .education-timeline {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box;
+  }
+
+  body {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #fafbfc;
+  }
+
+  /* HERO SECTION */
+  .hero-content {
+    padding: 1.5rem 0.5rem !important;
+    gap: 1.2rem !important;
+  }
+  .hero-title {
+    font-size: 2rem !important;
+    word-break: break-word;
+  }
+  .hero-buttons {
+    flex-direction: column !important;
+    gap: 0.7rem !important;
+    width: 100%;
+  }
+  .hero-buttons .btn {
+    width: 100% !important;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  /* ABOUT SECTION */
+  .about-content {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 1.2rem !important;
+    padding: 0.5rem 0.5rem !important;
+  }
+  .about-image {
+    order: -1;
+    margin: 0 auto 1rem auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  .profile-photo {
+    width: 110px !important;
+    height: 110px !important;
+    margin: 0 auto 1rem auto !important;
+    display: block !important;
+    position: static !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  .about-text {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 1rem !important;
+  }
+
+  /* STATS CARDS */
+  .about-stats {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.7rem !important;
+    margin: 1rem 0 0 0 !important;
+    width: 100% !important;
+  }
+  .stat {
+    padding: 0.7rem !important;
+    font-size: 1rem !important;
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    padding: 0.5rem !important;
+  }
+  .project-card {
+    margin: 0 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    padding: 0.5rem !important;
+  }
+  .skill-item {
+    width: 100% !important;
+    min-width: 0 !important;
+    font-size: 1rem !important;
+  }
+
+  /* CERTIFICATES */
+  .certificates-list {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    padding: 0.5rem !important;
+  }
+  .certificate-item {
+    width: 100% !important;
+    max-width: 350px !important;
+    min-width: 0 !important;
+    margin: 0 auto 1rem auto !important;
+  }
+  .certificate-img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+
+  /* EDUCATION */
+  .education-timeline {
+    padding: 0.5rem !important;
+  }
+  .timeline-card {
+    margin: 0.5rem 0 !important;
+    padding: 1rem !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* CONTACT */
+  .contact-content {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    padding: 0.5rem !important;
+  }
+  .contact-form form {
+    padding: 0.5rem !important;
+    width: 100% !important;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    width: 100% !important;
+    font-size: 1rem !important;
+    margin-bottom: 0.7rem !important;
+  }
+  .btn-grad, .btn, .btn-primary, .btn-secondary {
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+    font-size: 1rem !important;
+  }
+} 
