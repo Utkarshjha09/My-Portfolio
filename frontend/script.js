@@ -144,7 +144,9 @@ if (contactForm) {
             recaptcha: token
         };
         // Use a single backend URL for both local and production
-        const BACKEND_URL = window.location.hostname === 'localhost' ? 'http://localhost:3001/contact' : 'https://my-portfolio-eizv.onrender.com/contact';
+        const BACKEND_URL = window.location.hostname === 'localhost'
+            ? 'http://localhost:3001/contact'
+            : 'https://my-portfolio-eizv.onrender.com/contact';
         try {
             const res = await fetch(BACKEND_URL, {
                 method: 'POST',
@@ -353,31 +355,4 @@ document.querySelectorAll('.gooey-btn-container').forEach(container => {
       effect.classList.add('active');
     }
   });
-}); 
-
-document.addEventListener('DOMContentLoaded', function() {
-  const contactForm = document.getElementById('contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const form = e.target;
-      const data = {
-        name: form.name.value,
-        email: form.email.value,
-        subject: form.subject.value,
-        message: form.message.value
-      };
-      const res = await fetch('https://my-portfolio-eizv.onrender.com/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-      if (res.ok) {
-        alert('Message sent! Check your email for confirmation.');
-        form.reset();
-      } else {
-        alert('There was an error sending your message.');
-      }
-    });
-  }
 }); 
