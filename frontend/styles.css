@@ -1412,9 +1412,26 @@ body {
     
     /* About Section */
     .about-content {
-        grid-template-columns: 1fr !important;
-        gap: 2rem;
-        text-align: center;
+        flex-direction: column !important;
+        display: flex !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    .about-image {
+        order: -1;
+        margin: 0 auto 1rem auto !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+    .profile-photo {
+        width: 120px !important;
+        height: 120px !important;
+        margin: 0 auto !important;
+        display: block !important;
+        position: static !important;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
     }
     
     .about-text h3 {
@@ -1921,4 +1938,4 @@ body {
         padding: 10px 20px;
         font-size: 0.85rem;
     }
-} 
+}
