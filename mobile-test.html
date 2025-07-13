@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mobile Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .mobile-indicator {
+            background: #ff6b6b;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .desktop-indicator {
+            background: #4ecdc4;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .screen-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-family: monospace;
+        }
+        
+        @media (max-width: 768px) {
+            .desktop-indicator {
+                display: none;
+            }
+            
+            .mobile-indicator {
+                display: block;
+            }
+            
+            body {
+                padding: 10px;
+            }
+            
+            .test-container {
+                padding: 15px;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .mobile-indicator {
+                display: none;
+            }
+            
+            .desktop-indicator {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="mobile-indicator">📱 MOBILE VIEW DETECTED</div>
+        <div class="desktop-indicator">🖥️ DESKTOP VIEW DETECTED</div>
+        
+        <div class="screen-info">
+            <h3>Screen Information:</h3>
+            <p>Width: <span id="width"></span>px</p>
+            <p>Height: <span id="height"></span>px</p>
+            <p>Device Pixel Ratio: <span id="dpr"></span></p>
+            <p>User Agent: <span id="ua"></span></p>
+        </div>
+        
+        <h2>Mobile Responsiveness Test</h2>
+        <p>If you can see this page properly formatted on your mobile device, the mobile styles are working correctly.</p>
+        
+        <h3>Test Features:</h3>
+        <ul>
+            <li>✅ Viewport meta tag</li>
+            <li>✅ Responsive design</li>
+            <li>✅ Mobile-specific styles</li>
+            <li>✅ Touch-friendly interface</li>
+        </ul>
+        
+        <div style="background: #e9ecef; padding: 20px; border-radius: 5px; margin: 20px 0;">
+            <h4>Test Box</h4>
+            <p>This box should be properly sized and readable on mobile devices.</p>
+            <button style="background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+                Test Button
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Display screen information
+        document.getElementById('width').textContent = window.innerWidth;
+        document.getElementById('height').textContent = window.innerHeight;
+        document.getElementById('dpr').textContent = window.devicePixelRatio;
+        document.getElementById('ua').textContent = navigator.userAgent.substring(0, 50) + '...';
+        
+        // Update on resize
+        window.addEventListener('resize', function() {
+            document.getElementById('width').textContent = window.innerWidth;
+            document.getElementById('height').textContent = window.innerHeight;
+        });
+    </script>
+</body>
+</html> 
