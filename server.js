@@ -1,4 +1,6 @@
-const fetch = require('node-fetch');
+// Use node-fetch for backend fetch requests
+const nodeFetch = require('node-fetch'); // ✅ Use a different variable name
+
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
@@ -19,21 +21,19 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.EMAIL_USER || 'utkarshjha.999@gmail.com', // Use environment variable if available
-    pass: process.env.EMAIL_PASS || 'qibb pkkf pdhz jjgd'     // Use environment variable if available
+    user: process.env.EMAIL_USER || 'utkarshjha.999@gmail.com',
+    pass: process.env.EMAIL_PASS || 'qibb pkkf pdhz jjgd'
   }
 });
-
-const fetch = require('node-fetch'); // npm install node-fetch
 
 // Contact form endpoint
 app.post('/contact', async (req, res) => {
   const { name, email, subject, message, recaptcha } = req.body;
 
   // 1. Verify reCAPTCHA
-  const secret = process.env.RECAPTCHA_SECRET || '6LdT9YArAAAAAJ4PMzGdoV94XW46Dpjr2Sqbtz_d'; // Use environment variable if available
+  const secret = process.env.RECAPTCHA_SECRET || '6LdT9YArAAAAAJ4PMzGdoV94XW46Dpjr2Sqbtz_d';
   const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${recaptcha}`;
-  const captchaRes = await fetch(verifyUrl, { method: 'POST' });
+  const captchaRes = await nodeFetch(verifyUrl, { method: 'POST' }); // ✅ use nodeFetch here
   const captchaJson = await captchaRes.json();
 
   if (!captchaJson.success) {
@@ -75,6 +75,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Use environment variable for port (Render will provide this) or default to 3001
+// Use environment variable for port or default to 3001
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
