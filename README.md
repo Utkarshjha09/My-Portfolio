@@ -215,9 +215,9 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 📞 Contact
 
 - **Email:** utkarshjha.999@gmail.com
-- **GitHub:** [Your GitHub Profile]
-- **LinkedIn:** [Your LinkedIn Profile]
-- **Instagram:** [Your Instagram Profile]
+- **GitHub:** [https://github.com/Utkarshjha09]
+- **LinkedIn:** [https://www.linkedin.com/in/utkarshjha03/]
+- **Instagram:** [https://www.instagram.com/utkarshjha03/]
 
 ---
 
